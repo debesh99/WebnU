@@ -1,0 +1,172 @@
+$pr-color: rgb(222, 224, 229);
+$sc-color:rgba(231, 224, 224, 0.733);
+@mixin flexing($jc, $fd, $ai) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+    flex-direction: $fd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    color: black;
+}
+
+header {
+    // border: 2px solid green;
+    padding: 1% 1%;
+    ul {
+        // border: 2px solid green;
+        @include flexing(flex-end, row, center);
+        li {
+            // border: 2px solid green;
+            margin: 0% 1%;
+            font-size: 1.1 rem;
+            button {
+                background-color: rgb(27, 115, 233);
+                color: white;
+                padding: 10% 0%;
+                width: 13vh;
+                border-radius: 5px;
+                border: none;
+            }
+            button:hover {
+                cursor: pointer;
+                border: 2px solid rgba(212, 194, 194, 0.562);
+            }
+        }
+    }
+}
+
+main {
+    // border: 2px solid blue;
+    position: absolute;
+    width: 100vh;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    .container {
+        // border: 2px solid blue;
+        width: 100%;
+        @include flexing(center, column, center);
+        img {
+            width: 45%;
+            margin-bottom: 5%;
+        }
+        input {
+            width: 80vh;
+            padding: 2.5%;
+            border-radius: 3vh;
+            border: 2px solid $pr-color;
+        }
+        .google-btn {
+            // border: 2px solid blue;
+            @include flexing(center, row, center);
+            margin: 5% 0%;
+            width: 40%;
+            .btn {
+                padding: 3%;
+                margin: 0% 2%;
+                background-color: $sc-color;
+                border: none;
+            }
+            .btn:hover {
+                cursor: pointer;
+                border: 1px solid rgb(27, 115, 233);
+            }
+        }
+        .languages {
+            width: 85%;
+            @include flexing(space-evenly, row, center);
+            a {
+                text-decoration: none;
+                color: blue;
+            }
+        }
+    }
+    footer {
+        .footer2 {
+            ul {
+                margin: 0;
+                @include flexing(space-evenly, row, center);
+                li {
+                    list-style: none;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    width: 100%;
+    .footer1 {
+        // border: 2px solid red;
+        @include flexing(flex-start, row, center);
+        background-color: $pr-color;
+        padding: 1% 1%;
+        border-bottom: 1px solid;
+        border-color: rgba(29, 28, 28, 0.274);
+    }
+    .footer2 {
+        @include flexing(space-between, row, center);
+        // border: 2px solid red;
+        background-color: $pr-color;
+        .section1 {
+            ul {
+                // border: 2px solid blue;
+                @include flexing(flex-start, row, center);
+                padding: 2% 1%;
+                width: 70vh;
+                li {
+                    list-style: none;
+                    padding: 0 2%;
+                }
+            }
+        }
+        .section2 {
+            ul {
+                // border: 2px solid blue;
+                @include flexing(flex-end, row, flex-start);
+                padding: 4.5% 1%;
+                width: 30vh;
+                li {
+                    list-style: none;
+                    padding: 0 2%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width :700px) {
+    header {
+        // border: 2px solid red;
+        width: 100vh;
+    }
+    main {
+        width: 100vh;
+        position: absolute;
+        left: 50vh;
+        top: 80vh;
+        .languages {
+            a {
+                margin-right: 1%;
+            }
+        }
+    }
+    footer {
+        width: 100vh;
+        // border: 2px solid red;
+        position: absolute;
+        bottom: -115vh;
+    }
+}
